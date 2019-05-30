@@ -1,0 +1,30 @@
+$(document).ready(function(){
+
+    var slideContainer = $('.slideContainer');
+    setInterval(function(){
+
+        slideContainer.addClass('transition').css('transform', 'translateX(-1000px)');
+
+        setTimeout(function(){
+            var firstSlide = $('.slide').first();
+            slideContainer.append(firstSlide);
+            slideContainer.removeClass('transition').css('transform', 'translateX(0)');
+        }, 700)
+    }, 3000)
+
+    // THis is the same thing that is happening if we werent using the timeout 
+    // setInterval(function(){
+    //     var firstSlide = $('.slide').first();
+    //     slideContainer.append(firstSlide);
+    //     slideContainer.removeClass('transition').css('transform', 'translateX(0)');
+    // }, 3700)
+
+    $('#next').click(function(){
+        var firstSlide = $('.slide').first();
+        // var clonedSlide = firstSlide.clone();
+        // firstSlide.remove();
+        // slideContainer.append(clonedSlide);
+        slideContainer.append(firstSlide);
+    });
+
+});
